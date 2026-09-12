@@ -1,0 +1,35 @@
+
+
+// 9-9-26 Wed? Another problem I have is when I click a topic from the first drop-down 
+like 'Math' and then click another topic from the 
+//second drop-down like 'evolution' the 'Math is still visible 
+and I need to make that go back to the default 'Topics-A' . In swing and java I would
+// I would test the text field in the second drop down menu and if it is not null I would 
+set the text field in the first drop down back to 'Topic-A'. And vice-versa. 
+in the   field from the second 
+
+9-7-26 Escalante 
+// download dev-tools dependency and add to pom.xml so I don't need to ctrl-shift-R to see changes in
+the browser which might be called hot-swapping. See Ullen.
+
+// Where is the returned values inserted in the html textarea for q and a? called
+
+// Synchronize Next Question/Answer buttons at top and bottom, or move them tp the top
+
+// Create an FAQ page and maybe display it in the Answer field? Or do a pop up if possible in HTML?
+
+// Can I Clear All in the html page without using the controller? Can I make it automatic? 
+
+// How many controllers can I have?
+
+// Can I just use a global variable in the Impl class and use that
+// as a cache for the list so I don't need to keep returning to the db? Makes sense.
+
+// How to tile a pretty background
+
+// Have 2 Topics drop-down menus, but add it after you get the first one running
+
+// Do I need a Post if I am only going a Get? Try it. 
+
+
+

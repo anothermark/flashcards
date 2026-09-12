@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Flashcard Maker</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<!-- Place this right below your opening <body> tag -->
+<div class="desktop-only-warning">
+    <h2>💻 Desktop Access Only</h2>
+    <p>The Card Maker Workspace requires a large monitor to build and format cards properly.</p>
+    <p>Please log in from your desktop computer or laptop to manage flashcard collections.</p>
+</div>
+
+    <div class="app-container">
+        <!-- Left Side Column: Subjects Navigation Buttons -->
+        <div class="sidebar">
+            <h3>Subjects</h3>
+            <!-- Clicking a link sends the execution context right to your port 8085 paths natively -->
+            <a th:href="@{/api/flashcards/subject/1(name='Math')}" class="sidebar-btn" style="text-decoration:none; text-align:center;">Math</a>
+            <a th:href="@{/api/flashcards/subject/2(name='History')}" class="sidebar-btn" style="text-decoration:none; text-align:center;">History</a>
+            <a th:href="@{/api/flashcards/subject/3(name='Science')}" class="sidebar-btn" style="text-decoration:none; text-align:center;">Science</a>
+            <a th:href="@{/api/flashcards/subject/4(name='Geography')}" class="sidebar-btn" style="text-decoration:none; text-align:center;">Geography</a>
+        	<a th:href="@{/api/flashcards/subject/5(name='Evolution')}" class="sidebar-btn" style="text-decoration:none; text-align:center;">Evolution</a>
+            <a th:href="@{/api/flashcards/subject/6(name='Micro-Biology')}" class="sidebar-btn" style="text-decoration:none; text-align:center;">Micro-Biology</a>
+            <a th:href="@{/api/flashcards/subject/7(name='Soteriology')}" class="sidebar-btn" style="text-decoration:none; text-align:center;">Soteriology</a>
+            <a th:href="@{/api/flashcards/subject/8(name='Astrophysics')}" class="sidebar-btn" style="text-decoration:none; text-align:center;">Astrophysics</a>
+        
+        </div>
+
+        <!-- Center Workspace Layout Canvas -->
+        <div class="main-content" style="flex: 1;">
+            
+            <!-- Active Subject Status Box -->
+            <div class="status-header">
+                <label>Active Subject Workspace:</label>
+                <input type="text" id="activeSubjectDisplay" readonly 
+                       th:value="${currentSubjectName != null} ? (${currentSubjectName} + ' (Row ID: ' + ${currentSubjectId} + ')') : 'No subject selected. Select a subject on the left first!'">
+            </div>
+
+        <!-- The Core CRUD Entry Form Layout -->
+<form method="POST" class="crud-form" th:action="${currentSubjectId != null} ? '/api/flashcards/subject/' + ${currentSubjectId} : '/api/flashcards/subject/1'">
+    <!-- Tracks state context variables back to your Java parameters -->
+    <input type="hidden" name="name" th:value="${currentSubjectName != null ? currentSubjectName : 'Math'}">
+    
+    <input type="number" name="cardId" placeholder="Flashcard ID (For Find/Update/Delete)" th:value="${searchCardId}">
+    
+    <!-- <input type="text" name="question" placeholder="Enter Question Here" th:value="${searchQuestion}"> -->
+    
+    <textarea name="question" rows="4" th:text="${searchQuestion}" 
+                   placeholder="Enter Question Here" class="questiontextareaM" 
+                  style="resize: none;">Enter Question Here</textarea>
+    
+    <!-- <input type="text" name="answer" placeholder="Enter Answer Here" th:value="${searchAnswer}"> -->
+    
+    <textarea name="answer" rows="16" th:text="${searchAnswer}" 
+                   placeholder="Enter Answer Here" class="answertextareaM" 
+                  style="resize: none;">Enter Answer Here</textarea>
+    
+    
+    
+    <!-- FIXED: Removed th:if attribute so these buttons display immediately on boot -->
+    <div class="form-buttons">
+        <!-- Add Card acts as the primary form submission button -->
+        <button type="submit">Add the Card</button>
+        
+        <!-- Find, Update, and Delete change the form URL destination right before submission -->
+        <button type="submit" th:formaction="'/api/flashcards/subject/' + ${currentSubjectId != null ? currentSubjectId : 1} + '/find'" formmethod="GET">Find a Card</button>
+        <button type="submit" th:formaction="'/api/flashcards/subject/' + ${currentSubjectId != null ? currentSubjectId : 1} + '/update'">Update the Card</button>
+        <button type="submit" th:formaction="'/api/flashcards/subject/' + ${currentSubjectId != null ? currentSubjectId : 1} + '/delete'">Delete the Card</button>
+    </div>
+</form>
+
+<!-- Bottom Section: Live Collection Deck Table -->
+<!-- FIXED: Removed th:if attribute here too so the table container always stays visible -->
+<div class="preview-section">
+    <h3>Current Collection Cards</h3>
+    <div id="cardsTableContainer" class="pseudo-table">
+        
+        <p th:if="${#lists.isEmpty(loadedCards)}" style="color: gray; text-align: center;">
+            This list is empty. Add your first flashcard above!
+        </p>
+
+        <div th:unless="${#lists.isEmpty(loadedCards)}">
+            <div class="table-row header"><span>ID</span><span>Question</span><span>Answer</span></div>
+            
+            <div class="table-row" th:each="card : ${loadedCards}">
+                <span class="row-id" th:text="${card.id}">1</span>
+                <span class="row-q" th:text="${card.question}">Question Text</span>
+                <span class="row-a" th:text="${card.answer}">Answer Text</span>
+            </div>
+        </div>
+        
+    </div>
+</div>
+            
+        </div>
+    </div>
+
+</body>
+</html>

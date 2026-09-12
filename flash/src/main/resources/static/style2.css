@@ -1,0 +1,196 @@
+/* ==========================================================================
+   1. Base Setup (Desktop Layout Defaults)
+   ========================================================================== */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 10px 10px 40px 10px;
+    background-color: #800000; /* Maroon background */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    font-style: italic;
+    color: white;
+    margin: 10px 0 15px 0;
+    text-align: center;
+}
+
+/* Top Navigation: Clean grid/row structure */
+.topnav {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap; /* Allows items to wrap gracefully on small screens */
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 15px;
+}
+
+/* Textareas and Select inputs styled universally */
+.qnumb {
+    resize: none;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+/* Dropdown Custom Arrow Styling */
+.custom-dropdown, .custom-dropdownB {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 8px 30px 8px 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    cursor: pointer;
+    box-sizing: border-box;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='%23333333'><text x='0' y='60' font-size='60'>▼</text></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center; 
+    background-size: 10px; 
+}
+
+/* Base Button Styling */
+button {
+    padding: 8px 14px;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #007bff; /* Clean blue action buttons */
+    color: white;
+}
+
+button:active {
+    background-color: #0056b3;
+}
+
+/* Main Content Area: Centered and adapts dynamically */
+.main-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 500px; /* Perfect reading length on desktop, matches your layout */
+    align-items: center;
+}
+
+/* Layout Textareas */
+.questiontextarea, .answertextarea {
+    width: 100%; 
+    box-sizing: border-box; /* Includes padding inside width calculations */
+    padding: 12px;
+    font-size: 1.1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    font-family: inherit;
+    white-space: pre-wrap; /* Crucial: respects your database \n line breaks */
+    word-wrap: break-word;   /* Keeps text from clipping out of bounds */
+}
+
+/* Standard Footer Alignment */
+.pinned-footer {
+    margin-top: 25px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Explicit Button Color Utilities */
+.butClearAll { background-color: #dc3545; color: white; }
+.butfaq, .butbiblio { background-color: #6c757d; color: white; }
+
+/* ==========================================================================
+   2. Mobile-Specific Adjustments (Screens smaller than 768px wide)
+   ========================================================================== */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .topnav {
+        gap: 6px;
+    }
+
+    .custom-dropdown, .custom-dropdownB, button, .qnumb {
+        font-size: 0.95rem;
+        padding: 8px 10px;
+    }
+
+    .custom-dropdown, .custom-dropdownB {
+        padding-right: 26px; /* Protect custom arrow spacing on mobile */
+    }
+
+    .questiontextarea, .answertextarea {
+        font-size: 1rem; /* Marginally downsized text comfort on tiny screens */
+    }
+} /* Clean closing brace for media query. Rogue brace removed below! */
+
+/* ==========================================================================
+   3. Native Dialog Pop-Up Styles
+   ========================================================================== */
+.modal-dialog {
+    border: none;
+    border-radius: 8px;
+    padding: 0;
+    width: 90%;
+    max-width: 450px; /* Fits comfortably inside your main 500px layout width */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+}
+
+/* Automatic background dimming backdrop effect */
+.modal-dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px); /* Softly blurs your maroon card deck behind it */
+}
+
+.modal-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    color: #800000; /* Matches your core theme accent */
+    font-size: 1.4rem;
+}
+
+/* Scroll containers optimized for modern internal iframes */
+.faq-scroll-box, .biblio-scroll-box {
+    max-height: 300px; /* Limits the height so it never runs off a phone screen */
+    margin: 15px 0;
+    padding-right: 5px;
+}
+
+/* Distinctive close window action styling */
+.butCloseDialog {
+    background-color: #6c757d;
+    align-self: center;
+    width: 100%;
+    max-width: 150px;
+    margin-top: 10px;
+}
+.butCloseDialog:active {
+    background-color: #545b62;
+}

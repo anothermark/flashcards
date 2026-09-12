@@ -1,0 +1,215 @@
+/* By default, hide the mobile warning message on laptops */
+.desktop-only-warning {
+    display: none;
+}
+
+/* ⚡ When the screen crosses into mobile territory (under 768px wide) */
+@media (max-width: 768px) {
+    /* Hide the entire app workspace container! */
+    .app-container {
+        display: none !important;
+    }
+    
+    /* Reveal the warning message centered on the phone screen instead */
+    .desktop-only-warning {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 100vh;
+        padding: 20px;
+        background-color: #2c3e50;
+        color: white;
+        box-sizing: border-box;
+    }
+    
+    .desktop-only-warning h2 {
+        color: #e74c3c;
+        margin-bottom: 10px;
+    }
+}
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(128, 0, 0);
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 1.8rem;
+    font-style: italic;
+    color: white;
+    margin: 5px 0 10px 0;
+    text-align: center;
+}
+
+hr {
+	max-width: 1000px;
+	color: white;
+}
+
+
+
+.app-container {
+    display: flex;
+    gap: 10px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Sidebar Layout */
+.sidebar {
+    width: 200px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+.sidebar h3 {
+    margin-top: 0;
+    margin-bottom: 12px; /* Adds clean spacing below the header before buttons start */
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 2px;
+    color: #2c3e50;
+}
+
+/* Unified Sidebar Button Styles (Handles both links and real button tags cleanly) */
+.sidebar-btn, .sidebar button {
+    display: block;       
+    width: 100%;          /* Forces them to fill the 200px width completely */
+    box-sizing: border-box;
+    margin-top: 0;        
+    margin-bottom: 3px;   /* Your perfect 3px vertical spacing gap */
+    padding: 10px;
+    background: #800040;
+    color: white;
+    border: none;
+    border-radius: 4px;  
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;   /* Keeps your labels neatly centered */
+    text-decoration: none;/* Removes underlines if the element is an anchor link */
+}
+
+/* Hover effects for both elements */
+.sidebar-btn:hover, .sidebar button:hover {
+    background: #2980b9;
+}
+
+
+/* Content Layout Area */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+}
+
+.status-header {
+    background: #eef2f7;
+    padding: 15px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.status-header input {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #2c3e50;
+    border: none;
+    background: transparent;
+}
+
+.questiontextareaM {
+	font-size: 1.3em;
+	padding: 15px;
+	resize: none;
+}
+
+.answertextareaM {
+	font-size: 1.3em;
+	padding: 15px;
+	resize: none;
+}
+
+
+.crud-form {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.crud-form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.form-buttons button {
+    padding: 12px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.form-buttons button:nth-child(1) { background: rgb(64, 0, 128); }
+.form-buttons button:nth-child(2) { background: rgb(64, 0, 128); }
+.form-buttons button:nth-child(3) { background: rgb(64, 0, 128); }
+.form-buttons button:nth-child(4) { background: rgb(255, 0, 0); }
+
+/* Pseudo-Table List Styles */
+.preview-section {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.pseudo-table {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: 80px 1fr 1fr;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+
+.table-row.header {
+    background: #f8f9fa;
+    font-weight: bold;
+    border-bottom: 2px solid #ddd;
+}
+
+.table-row:last-child {
+    border-bottom: none;
+}
+

@@ -1,0 +1,113 @@
+<!-- This nonprofit application is to be used exclusively for educational purposes -->
+
+<!doctype html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Mobile Mustard Seed</title>
+    <!-- The only style connection needed -->
+    <link rel="stylesheet" th:href="@{/style2.css}" />
+</head>
+
+<body>
+    <!-- Main header -->
+    <header>
+        <h1>The Mobile Mustard Seed</h1>
+    </header>
+
+    <!-- Navigation Area -->
+    <div class="topnav"> 
+        <textarea class="qnumb" rows="1" cols="5" th:text="${cardCounter}" readonly></textarea> 
+
+        <!-- FORM 1: Topics-A Dropdown -->
+        <form th:action="@{/select-topic}" method="post" style="display: inline;">
+            <select class="custom-dropdown" name="topic" id="topicsA" onchange="this.form.submit()" required>
+                <option value="" disabled th:selected="${selectedTopic == null}">Topics-A</option>
+                <option value="math" th:selected="${selectedTopic == 'math'}">Math</option>
+                <option value="history" th:selected="${selectedTopic == 'history'}">History</option>
+                <option value="science" th:selected="${selectedTopic == 'science'}">Science</option>
+                <option value="geography" th:selected="${selectedTopic == 'geography'}">Geography</option> 
+            </select>
+        </form>
+
+        <!-- FORM 2: Topics-B Dropdown -->
+        <form th:action="@{/select-topic}" method="post" style="display: inline;">
+            <select class="custom-dropdownB" name="topic" id="topicsB" onchange="this.form.submit()" required>
+                <option value="" disabled th:selected="${selectedTopicB == null}">Topics-B</option>
+                <option value="Evolution" th:selected="${selectedTopicB == 'evolution'}">Evolution</option>
+                <option value="Micro-Biology" th:selected="${selectedTopicB == 'micro-biology'}">Micro-Biology</option>
+                <option value="Soteriology" th:selected="${selectedTopicB == 'soteriology'}">Soteriology</option>
+                <option value="Astrophysics" th:selected="${selectedTopicB == 'astrophysics'}">Astrophysics</option>                        
+            </select>
+        </form>
+        
+        <!-- Next Question Button -->
+        <form th:action="@{/fetch-value}" method="post" style="display: inline;">
+            <button type="submit" class="butNextQuestion">Next</button>
+        </form>
+
+        <!-- Answer Button -->
+        <form th:action="@{/fetch-answer}" method="post" style="display: inline;">
+            <button type="submit" class="butAnswer">Answer</button>
+        </form>
+    </div>
+
+    <!-- Main Flashcard Content Area -->
+    <main class="main-section">
+        <textarea rows="4" th:text="${myTextValue}" 
+                  name="displayquestion" class="questiontextarea" readonly>Question displayed here</textarea>
+        
+        <textarea rows="15" th:text="${myTextAnswer}" 
+                  name="displayanswer" class="answertextarea" readonly>Answer displayed here</textarea>
+    </main>
+
+    <!-- Footer Controls -->
+    <footer class="pinned-footer">
+        <form action="displaycards" method="POST" style="display: inline;">
+            <!-- Replace your current FAQ button with this line -->
+		<button type="button" class="butfaq" onclick="document.getElementById('faqDialog').showModal()">FAQ</button>
+             
+            <!-- Replace your current FAQ button with this line -->
+<button type="button" class="butbiblio" onclick="document.getElementById('biblioDialog').showModal()">Bibliography</button> 
+        </form> 
+        
+        <form th:action="@{/clear-all}" method="post" style="display: inline;">
+            <button type="submit" class="butClearAll">Clear All</button>
+        </form> 
+    </footer>
+    
+    <!-- Native HTML Dialog Box Box for Bibliography -->
+<!-- Native HTML Dialog Box for Bibliography -->
+<dialog id="biblioDialog" class="modal-dialog">
+    <div class="modal-content">
+        <h2>Bibliography</h2>
+        <hr>
+                 
+        <div class="biblio-scroll-box">
+            <!-- Embedding the separate HTML file here -->
+            <iframe src="/bibliography.html" title="Bibliography Content" width="100%" height="250px" style="border:none;"></iframe>
+        </div>
+                 
+        <!-- Button to close the pop-up -->
+        <button type="button" class="butCloseDialog" onclick="document.getElementById('biblioDialog').close()">Close</button>
+    </div>
+</dialog>
+
+    <!-- Native HTML Dialog Box Box for FAQ -->
+<dialog id="faqDialog" class="modal-dialog">
+    <div class="modal-content">
+        <h2>Frequently Asked Questions</h2>
+        <hr>
+        <div class="faq-scroll-box">
+            <!-- Embedding the separate HTML file here -->
+            <iframe src="/faq.html" title="FAQ Content" width="100%" height="250px" style="border:none;"></iframe>
+        </div>
+        
+        
+        <!-- Button to close the pop-up -->
+        <button type="button" class="butCloseDialog" onclick="document.getElementById('faqDialog').close()">Close</button>
+    </div>
+</dialog>
+</body>
+</html>
