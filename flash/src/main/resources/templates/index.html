@@ -42,6 +42,13 @@
             </select>
         </form>
         
+        <!-- NEW SHUFFLE BUTTON FORM (Flipped Text Logic for better UX) -->
+        <form th:action="@{/toggle-shuffle}" method="post" style="display: inline;">
+            <button type="submit" th:class="${isShuffled} ? 'butShuffleActive' : 'butShuffle'">
+                <span th:text="${isShuffled} ? 'Switch to Sequential' : 'Switch to Random'">Order</span>
+            </button>
+        </form>
+        
         <!-- Next Question Button -->
         <form th:action="@{/fetch-value}" method="post" style="display: inline;">
             <button type="submit" class="butNextQuestion">Next</button>
@@ -77,8 +84,7 @@
         </form> 
     </footer>
     
-    <!-- Native HTML Dialog Box Box for Bibliography -->
-<!-- Native HTML Dialog Box for Bibliography -->
+    <!-- Native HTML Dialog Box for Bibliography -->
 <dialog id="biblioDialog" class="modal-dialog">
     <div class="modal-content">
         <h2>Bibliography</h2>
@@ -94,7 +100,7 @@
     </div>
 </dialog>
 
-    <!-- Native HTML Dialog Box Box for FAQ -->
+    <!-- Native HTML Dialog Box for FAQ -->
 <dialog id="faqDialog" class="modal-dialog">
     <div class="modal-content">
         <h2>Frequently Asked Questions</h2>
