@@ -118,28 +118,28 @@ public class CardServiceImpl implements CardService {
 
         // Map your HTML dropdown string values to your actual MySQL Row IDs (id)
         switch (topicName.toLowerCase()) {
-            case "math":
+            case "verses[a]":
                 subjectId = 1L; // Maps to row ID 1 in your flashcards table
                 break;
-            case "history":
+            case "atheism":
                 subjectId = 2L; // Maps to row ID 2 in your flashcards table
                 break;
-            case "science":
+            case "incarnation":
                 subjectId = 3L; // Maps to row ID 3 in your flashcards table
                 break;
-            case "geography":
+            case "soteriology":
                 subjectId = 4L; // Maps to row ID 4 in your flashcards table
                 break;
-            case "evolution":
+            case "verses[b]":
                 subjectId = 5L; // Maps to row ID 5 in your flashcards table
                 break;
-            case "micro-biology":
+            case "trinity":
                 subjectId = 6L; // Maps to row ID 6 in your flashcards table
                 break;
-            case "soteriology":
+            case "evolution":
                 subjectId = 7L; // Maps to row ID 7 in your flashcards table
                 break;
-            case "astrophysics":
+            case "bible verasity":
                 subjectId = 8L; // Maps to row ID 8 in your flashcards table
                 break;
                 

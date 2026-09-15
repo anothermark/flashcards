@@ -49,8 +49,8 @@ public class FlipController {
         
         // --- MULTI-DROPDOWN SYNCHRONIZER (FIXED CASE MATCHING) ---
         String normalizedTopic = topic.toLowerCase();
-        if (normalizedTopic.equals("math") || normalizedTopic.equals("history") || 
-            normalizedTopic.equals("science") || normalizedTopic.equals("geography")) {
+        if (normalizedTopic.equals("verses[a]") || normalizedTopic.equals("atheism") || 
+            normalizedTopic.equals("incarnation") || normalizedTopic.equals("soteriology")) {
             
             session.setAttribute("selectedTopic", normalizedTopic);
             session.setAttribute("selectedTopicB", null);
