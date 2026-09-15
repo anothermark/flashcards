@@ -24,10 +24,10 @@
         <form th:action="@{/select-topic}" method="post" style="display: inline;">
             <select class="custom-dropdown" name="topic" id="topicsA" onchange="this.form.submit()" required>
                 <option value="" disabled th:selected="${selectedTopic == null}">Topics-A</option>
-                <option value="math" th:selected="${selectedTopic == 'math'}">Math</option>
-                <option value="history" th:selected="${selectedTopic == 'history'}">History</option>
-                <option value="science" th:selected="${selectedTopic == 'science'}">Science</option>
-                <option value="geography" th:selected="${selectedTopic == 'geography'}">Geography</option> 
+                <option value="Verses[a]" th:selected="${selectedTopic == 'verses[a]'}">Verses[a]</option>
+                <option value="Atheism" th:selected="${selectedTopic == 'atheism'}">Atheism</option>
+                <option value="Incarnation" th:selected="${selectedTopic == 'incarnation'}">Incarnation</option>
+                <option value="Soteriology" th:selected="${selectedTopic == 'soteriology'}">Soteriology</option> 
             </select>
         </form>
 
@@ -35,10 +35,10 @@
         <form th:action="@{/select-topic}" method="post" style="display: inline;">
             <select class="custom-dropdownB" name="topic" id="topicsB" onchange="this.form.submit()" required>
                 <option value="" disabled th:selected="${selectedTopicB == null}">Topics-B</option>
+                <option value="Verses[b]" th:selected="${selectedTopicB == 'verses[b]'}">Verses[b]</option>
+                <option value="Trinity" th:selected="${selectedTopicB == 'trinity'}">Trinity</option>
                 <option value="Evolution" th:selected="${selectedTopicB == 'evolution'}">Evolution</option>
-                <option value="Micro-Biology" th:selected="${selectedTopicB == 'micro-biology'}">Micro-Biology</option>
-                <option value="Soteriology" th:selected="${selectedTopicB == 'soteriology'}">Soteriology</option>
-                <option value="Astrophysics" th:selected="${selectedTopicB == 'astrophysics'}">Astrophysics</option>                        
+                <option value="Bible Verasity" th:selected="${selectedTopicB == 'bible Verasity'}">Bible Verasity</option>                        
             </select>
         </form>
         
