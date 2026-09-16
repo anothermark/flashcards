@@ -117,7 +117,7 @@ public class FlipController {
 		// Display the first card text from your newly modified configuration
 		model.addAttribute("myTextValue", activeWorkingList.get(0).getQuestion());
 		model.addAttribute("myTextAnswer", "");
-		model.addAttribute("cardCounter", "1 / " + activeWorkingList.size());
+		model.addAttribute("cardCounter", "1/" + activeWorkingList.size());
 
 		model.addAttribute("selectedTopic", session.getAttribute("selectedTopic"));
 		model.addAttribute("selectedTopicB", session.getAttribute("selectedTopicB"));
@@ -147,7 +147,7 @@ public class FlipController {
 			session.setAttribute("currentIndex", currentIndex);
 
 			model.addAttribute("myTextValue", activeDeck.get(currentIndex).getQuestion());
-			model.addAttribute("cardCounter", (currentIndex + 1) + " / " + activeDeck.size());
+			model.addAttribute("cardCounter", (currentIndex + 1) + "/" + activeDeck.size());
 		} else {
 			model.addAttribute("myTextValue", "Please select a topic first!");
 			model.addAttribute("cardCounter", "0/0");
@@ -185,7 +185,7 @@ public class FlipController {
 		} else {
 			model.addAttribute("myTextValue", "Please select a topic first!");
 			model.addAttribute("myTextAnswer", "No question active to answer.");
-			model.addAttribute("cardCounter", "0 / 0");
+			model.addAttribute("cardCounter", "0/0");
 		}
 
 		model.addAttribute("selectedTopic", session.getAttribute("selectedTopic"));
