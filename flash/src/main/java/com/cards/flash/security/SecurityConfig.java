@@ -51,10 +51,10 @@ public class SecurityConfig {
     public UserDetailsService userDetailsService() {
         // 6. Define your secure server-side login credentials
         UserDetails admin = User.withDefaultPasswordEncoder()
-                .username("admin")
+                .username("guest")
                 // But can't anyone still see the "metheboss" password?
                 .password(System.getenv("APP_ADMIN_PASSWORD") != null ? System.getenv("APP_ADMIN_PASSWORD") : "metheboss")
-                .roles("ADMIN")
+                .roles("GUEST")
                 .build();
 
         return new InMemoryUserDetailsManager(admin);

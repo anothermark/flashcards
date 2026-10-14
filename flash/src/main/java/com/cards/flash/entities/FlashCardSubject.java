@@ -9,6 +9,9 @@ import java.util.List;
 @Entity
 @Table(name = "flashcards") // This simply tells Hibernate: "Hey, look at my existing MySQL table named 
 							//flashcards and link this Java class directly to it."
+
+// I believe I dispensed with this though Google built it. Seems like
+// an expensive unnecessary step. 
 public class FlashCardSubject {
 
 	@Id

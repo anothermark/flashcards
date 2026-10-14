@@ -143,7 +143,9 @@ public class FlipController {
 		Integer currentIndex = (Integer) session.getAttribute("currentIndex");
 
 		if (activeDeck != null && !activeDeck.isEmpty() && currentIndex != null) {
-			currentIndex = (currentIndex + 1) % activeDeck.size();
+			
+			currentIndex = (currentIndex + 1) % activeDeck.size();// learn this!!
+			
 			session.setAttribute("currentIndex", currentIndex);
 
 			model.addAttribute("myTextValue", activeDeck.get(currentIndex).getQuestion());
@@ -217,6 +219,7 @@ public class FlipController {
 	}
 
 	// Loads cardmaker.html layout profile safely inside the file boundaries
+	// Say what? What calls this?
 	@GetMapping({ "/cardmaker", "/cardmaker/" })
 	public String showCardMaker(Model model) {
 		model.addAttribute("searchCardId", "");

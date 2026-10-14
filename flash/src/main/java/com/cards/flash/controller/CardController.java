@@ -20,6 +20,7 @@ public class CardController {
     @GetMapping("/")
     public String showHomePage(Model model) {
         // Pass placeholder values so the UI displays all forms and buttons on first load
+    	// Fix this because I don't use Math as a subject anymore
         model.addAttribute("currentSubjectId", 1); // Defaults to Math view context layout
         model.addAttribute("currentSubjectName", "Math");
         
@@ -41,7 +42,7 @@ public class CardController {
         model.addAttribute("currentSubjectId", id);
         model.addAttribute("currentSubjectName", name);
         System.out.println("jie589485495n");
-        return "cardmaker"; // Simply updates your index file natively
+        return "cardmaker"; // Simply updates your cardmaker.html file natively
     }
 
     // 2. GET - Searches for a card by ID inside the list and loads it into the form fields

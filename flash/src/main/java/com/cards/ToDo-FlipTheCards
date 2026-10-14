@@ -1,4 +1,43 @@
 
+9-14
+All is up and running.
+Next - practice adding cards, backing jup db, and pushing db to aiven and checking in Render.
+
+Practice modifying files and pushing them to github.
+
+Change the topics etc in both html pages to reflect the real topics
+
+Begin compiling a list of verses in Office Writer.
+
+Begin populating database with  QuestionAnswer cards.
+
+Create another repository in github for a jar of the calculator.
+
+Create a repository in github for student management app.
+
+Create repository in github for BrainBuilder and BrainTester
+
+Fix the swing Builder app's bug. 
+
+Figure out how to embed that h2 db file into the Tester jar file and deploy.
+
+Build a portfolio page to display all 6 apps with access to code and jars
+for the swing apps, and both code access and links to Mustard Seed app.
+
+Domain name for TheMustardSeed
+
+If this works better with no glitches upgrade Render and possible
+Aiven to prevent downtime and spinups. 
+
+Think about a new Spring project while applying for work.
+
+Fill out Bibliography for MustardSeed
+
+Fill out FAQ for MustardSeed
+
+Create Resume.
+
+
 
 // 9-9-26 Wed? Another problem I have is when I click a topic from the first drop-down 
 like 'Math' and then click another topic from the 

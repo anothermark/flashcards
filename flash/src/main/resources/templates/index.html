@@ -1,4 +1,5 @@
 <!-- This nonprofit application is to be used exclusively for educational purposes -->
+<!-- Test clean workspace 10-7-26 -->
 
 <!doctype html>
 <html lang="en" xmlns:th="http://thymeleaf.org">
@@ -38,7 +39,7 @@
                 <option value="Verses[b]" th:selected="${selectedTopicB == 'verses[b]'}">Verses[b]</option>
                 <option value="Trinity" th:selected="${selectedTopicB == 'trinity'}">Trinity</option>
                 <option value="Evolution" th:selected="${selectedTopicB == 'evolution'}">Evolution</option>
-                <option value="Bible Verasity" th:selected="${selectedTopicB == 'bible verasity'}">Bible Verasity</option>                        
+                <option value="Bible Verasity" th:selected="${selectedTopicB == 'bible verasity'}">Bible Veracity</option>                        
             </select>
         </form>
         
@@ -62,21 +63,21 @@
 
     <!-- Main Flashcard Content Area -->
     <main class="main-section">
-        <textarea rows="4" th:text="${myTextValue}" 
+        <textarea rows="5" th:text="${myTextValue}" 
                   name="displayquestion" class="questiontextarea" readonly>Question displayed here</textarea>
         
-        <textarea rows="15" th:text="${myTextAnswer}" 
+        <textarea rows="14" th:text="${myTextAnswer}" 
                   name="displayanswer" class="answertextarea" readonly>Answer displayed here</textarea>
     </main>
 
     <!-- Footer Controls -->
     <footer class="pinned-footer">
         <form action="displaycards" method="POST" style="display: inline;">
-            <!-- Replace your current FAQ button with this line -->
+            <!-- Replaces current FAQ button with this line -->
 		<button type="button" class="butfaq" onclick="document.getElementById('faqDialog').showModal()">FAQ</button>
              
-            <!-- Replace your current FAQ button with this line -->
-<button type="button" class="butbiblio" onclick="document.getElementById('biblioDialog').showModal()">Bibliography</button> 
+            <!-- Replaces current FAQ button with this line -->
+		<button type="button" class="butbiblio" onclick="document.getElementById('biblioDialog').showModal()">Bibliography</button> 
         </form> 
         
         <form th:action="@{/clear-all}" method="post" style="display: inline;">
