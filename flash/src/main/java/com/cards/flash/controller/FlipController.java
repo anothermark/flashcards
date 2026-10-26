@@ -74,6 +74,12 @@ public class FlipController {
 		model.addAttribute("isShuffled", false);
 		return "index";
 	}
+	
+	// 1b. Catches accidental direct URLs / new tabs and sends them safely home
+		@GetMapping("/select-topic")
+		public String handleSelectTopicGet() {
+			return "redirect:/";
+		}
 
 	// ==========================================================
 	// NEW ENDPOINT: Toggles the Shuffle Order In-Memory on Render
