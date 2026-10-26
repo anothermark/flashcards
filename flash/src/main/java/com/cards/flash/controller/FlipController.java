@@ -80,6 +80,30 @@ public class FlipController {
 		public String handleSelectTopicGet() {
 			return "redirect:/";
 		}
+		
+		// 1c. Catch-all for shuffle toggle direct URLs
+		@GetMapping("/toggle-shuffle")
+		public String handleToggleShuffleGet() {
+			return "redirect:/";
+		}
+
+		// 1d. Catch-all for next question direct URLs
+		@GetMapping("/fetch-value")
+		public String handleFetchValueGet() {
+			return "redirect:/";
+		}
+
+		// 1e. Catch-all for show answer direct URLs
+		@GetMapping("/fetch-answer")
+		public String handleFetchAnswerGet() {
+			return "redirect:/";
+		}
+
+		// 1f. Catch-all for clear all direct URLs
+		@GetMapping("/clear-all")
+		public String handleClearAllGet() {
+			return "redirect:/";
+		}
 
 	// ==========================================================
 	// NEW ENDPOINT: Toggles the Shuffle Order In-Memory on Render
