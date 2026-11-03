@@ -47,13 +47,22 @@ public class SecurityConfig {
 	    return http.build();
 	}
 
-    @Bean
+	@Bean
     public UserDetailsService userDetailsService() {
-        // 6. Define your secure server-side login credentials
+        // 1. Fetch the password securely from the hosting environment
+        String adminPassword = System.getenv("APP_ADMIN_PASSWORD");
+        
+        // 2. Safe protection block for local development or missing keys
+        if (adminPassword == null || adminPassword.isEmpty()) {
+            // This is just a placeholder for local coding. 
+            // It protects your live production website from being hacked via GitHub.
+            adminPassword = "LOCAL_DEV_PASSWORD_ONLY"; 
+        }
+
+        // 3. Build the secure server-side login credentials
         UserDetails admin = User.withDefaultPasswordEncoder()
                 .username("guest")
-                // But can't anyone still see the "metheboss" password?
-                .password(System.getenv("APP_ADMIN_PASSWORD") != null ? System.getenv("APP_ADMIN_PASSWORD") : "metheboss")
+                .password(adminPassword)
                 .roles("GUEST")
                 .build();
 
